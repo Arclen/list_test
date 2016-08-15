@@ -1,35 +1,58 @@
+/*
+Trying to make a to-do list, but will probably end up using js instead
+ */
+package task;
+
+/**
+ *
+ * @author Jacob Liou
+ */
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class GoGroceryShopping
-{
-	public static void main(String []args)
-	{
-		Scanner input = new Scanner (System.in);
-		Scanner in = new Scanner (System.in);
-		Scanner put = new Scanner (System.in);
-		String name;
-		double cost;
-		int num;
-		double sum = 0.0;
+public class Task {
 
-		GroceryList slist = new GroceryList();
-		for(int i = 1; i<=4; i++)
-		{
-			System.out.println("What is item number "+i+" on your list?");
-			name = in.nextLine();
-			System.out.println("How many of them do you need?");
-			num = input.nextInt();
-			System.out.println("How much does it cost?");
-			cost = put.nextDouble();
-			GroceryItem item = new GroceryItem(name, cost);
-			slist.addItem(item,num);
-			item.updatePrice(cost);
-			item.getName(name);
-			sum+=num*cost;
-		}
-
-		slist.printList();
-		System.out.printf("$%.2f",slist.totalCost(sum));
-	}
+    String title;
+    String info;
+    int diff;
+    Scanner input = new Scanner (System.in);
+    
+    public Task()
+    {
+        title = "Insert task name";
+        info = "Insert task details";
+        diff = 3;
+    }
+    
+    public Task(String t, int d)
+    {
+        title = t;
+        info = "Insert task details";
+        diff =d;
+    }
+    
+    public void printTask()
+    {
+        System.out.println(title + " Difficulty level: " + diff);
+        System.out.println(info);
+    }
+    public void assignInfo()
+    {
+        System.out.println("What are the details of " + title + "?");
+        info = input.nextLine();
+    }
+    public void assignDiff()
+    {
+        System.out.println("What is the difficulty level of " + title + "?");
+        diff = input.nextInt();
+    }
+    public static void main(String[] args) 
+    {
+        Task shopping = new Task("Shopping", 3);
+        ArrayList<Task> todolist = new ArrayList<Task>();
+        todolist.add(shopping);
+        shopping.assignInfo();
+        shopping.printTask();
+    }
+    
 }
