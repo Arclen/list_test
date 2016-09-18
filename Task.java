@@ -1,5 +1,7 @@
 /*
-Trying to make a to-do list, but will probably end up using js instead
+The idea is to make a to-do list, nothing special
+However, later on in development I would like to add customization 
+But, I have to get there first, so disregard for the time being
  */
 package task;
 
